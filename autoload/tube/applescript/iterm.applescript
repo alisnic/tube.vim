@@ -1,27 +1,17 @@
--- iterm.applescript
----
--- this script requires an argument that represent the command to execute
-
 on run argv
-
     set command to (item 1 of argv)
 
-    tell application "iTerm"
+    tell application iTerm2
+      set _window to (current window)
 
-        try
-            set mysession to current session of current terminal
-        on error
-            set myterm to (make new terminal)
-            tell myterm
-                launch session "Default"
-                set mysession to current session
-            end tell
-        end try
+      if _window is equal to missing value then
+        create window with default profile
+      end if
 
-        tell mysession
-            write text command
+      tell current window
+        tell current session
+          write text command
         end tell
-
+      end tell
     end tell
-
 end run
