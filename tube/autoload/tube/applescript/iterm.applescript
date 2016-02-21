@@ -1,14 +1,17 @@
--- iterm.applescript
----
--- this script requires an argument that represent the command to execute
-
 on run argv
-
     set command to (item 1 of argv)
 
     tell application iTerm2
-      tell current session of first window
-        write text command
+      set _window to (current window)
+
+      if _window is equal to missing value then
+        create window with default profile
+      end if
+
+      tell current window
+        tell current session
+          write text command
+        end tell
       end tell
     end tell
 end run
