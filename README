@@ -1,7 +1,0 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=4400
-
-
-Tube provides a tiny interface for sending commands from 
-MacVim to a separate iTerm or Terminal window without leaving MacVim. 
-
-Documentation at https://github.com/gcmt/tube.vim
